@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Consume zend-mvc modules as configuration providers within zend-config-aggregator.">  
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="//img/favicon.ico">
 
-    <title>Usage - zend-config-aggregator-modulemanager - Zend Framework Docs</title>
+    <title>zend-config-aggregator-modulemanager - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-f3b53f5ceb.css">
+    <link rel="stylesheet" href="//css/styles-f3b53f5ceb.css">
 </head>
 <body id="page-top">
 
@@ -31,7 +31,7 @@
             
             <span class="navbar-brand">
                 <a class="logo-link" href="https://framework.zend.com/" data-tooltip data-placement="bottom" title="Go to the ZF homepage">
-                    <img src="../img/zend-framework-logo.svg" height="28" alt="Zend Framework">
+                    <img src="//img/zend-framework-logo.svg" height="28" alt="Zend Framework">
                 </a>
             </span>
         </div>
@@ -66,7 +66,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-config-aggregator-modulemanager</a>
+            <a href="/.">zend-config-aggregator-modulemanager</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -74,8 +74,8 @@
         <ul class="subnavigation__list">
             
                 
-                    <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">Usage</a>
+                    <li class="subnavigation__list-item ">
+                        <a href="/usage/" class="subnavigation__link">Usage</a>
                     </li>
                 
             
@@ -148,114 +148,18 @@
             <div class="col-md-9 col-xs-12 content" role="main">
             <!-- content:begin -->
                 
-                    <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-    <li><a href="https://framework.zend.com/">Home</a></li>
 
-    
-        <li><a href="https://docs.zendframework.com/">Documentation</a></li>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
-        
-            <li><a href="..">zend-config-aggregator-modulemanager</a></li>
-
-            
-
-            <li class="active">Usage</li>
-        
-    
-</ol>
+<a href="/" class="btn btn-default" role="button">Go to homepage</a>
 
 
-    
-
-    
-    
-
-    
-    
-
-
-    <h1 id="usage">Usage</h1>
-<p>This package ships with a <a href="https://docs.zendframework.com/zend-config-aggregator/config-providers/">zend-config-aggregator provider</a>
-that allows you to use <code>Module</code> classes as configuration providers in
-applications backed by <code>Zend\ConfigAggregator\ConfigAggregator</code>.</p>
-<p>As an example, consider the following <code>Module</code> class:</p>
-<pre class="codehilite"><code class="language-php">namespace My\Zend\MvcModule;
-
-class Module 
-{
-    public function getConfig()
-    {
-        return [
-            'service_manager' =&gt; [
-                'invokables' =&gt; [
-                    Service\MyService::class =&gt; Service\MyService::class, 
-                ],
-            ],
-        ];
-    }
-}</code></pre>
-
-<p>When defining configuration for your application, you can use the class
-<code>Zend\ConfigAggregatorModuleManager\ZendModuleProvider</code> to wrap the module and
-use it as a configuration provider:</p>
-<pre class="codehilite"><code class="language-php">use Zend\ConfigAggregator\ConfigAggregator;
-use Zend\ConfigAggregatorModuleManager\ZendModuleProvider;
-use My\Zend\MvcModule\Module as MyZendMvcModule;
-
-$aggregator = new ConfigAggregator([
-    new ZendModuleProvider(new MyZendMvcModule()),
-]);
-
-var_dump($aggregator-&gt;getMergedConfig());</code></pre>
-
-<p>Using this provider, the <code>Module</code> class is being parsed for
-<code>zendframework/zend-modulemanager</code> interfaces or methods in exactly the same way as
-performed in zend-mvc applications.</p>
-<p>The resultant output of the above example would be:</p>
-<pre class="codehilite"><code class="language-php">array(1) {
-  'dependencies' =&gt; 
-  array(1) {
-    'invokables' =&gt;
-    array(1) {
-       'My\Zend\MvcModule\Service\MyService' =&gt;
-       string(35) "My\Zend\MvcModule\Service\MyService"
-    }
-  }
-}</code></pre>
-
-
-
-    <nav>
-    <ul class="page-nav hidden-print">
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="..">
-                    <i class="fa fa-chevron-left"></i> Previous
-                </a>
-            
-        </li>
-
-        
-        <li class="page-nav__item">
-            
-        </li>
-    </ul>
-</nav>
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-config-aggregator-modulemanager/edit/master/docs/book/usage.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             <!-- content:end -->
             </div>
             <div class="col-md-3 col-xs-12 sidebar">
@@ -271,7 +175,7 @@ performed in zend-mvc applications.</p>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-config-aggregator-modulemanager</a>
+            <a href="/.">zend-config-aggregator-modulemanager</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -279,8 +183,8 @@ performed in zend-mvc applications.</p>
         <ul class="subnavigation__list">
             
                 
-                    <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">Usage</a>
+                    <li class="subnavigation__list-item ">
+                        <a href="/usage/" class="subnavigation__link">Usage</a>
                     </li>
                 
             
@@ -355,11 +259,11 @@ performed in zend-mvc applications.</p>
 </footer>
 
     <script>
-        var base_url = '..',
+        var base_url = '/',
             siteName = 'zend-config-aggregator-modulemanager';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="//js/scripts-8d7ae56abf.js"></script>
+        <script src="/search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
