@@ -22,6 +22,7 @@ use Zend\ModuleManager\Feature\RouteProviderInterface;
 use Zend\ModuleManager\Feature\SerializerProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\ModuleManager\Feature\ValidatorProviderInterface;
+use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
 
 /**
  * Provide configuration by consuming zend-modulemanager Module classes.
@@ -62,6 +63,7 @@ class ZendModuleProvider
             'hydrators' => $this->getHydratorConfig(),
             'input_filters' => $this->getInputFilterConfig(),
             'serializers' => $this->getSerializerConfig(),
+            'view_helpers' => $this->getViewHelperConfig(),
         ]));
     }
 
@@ -177,7 +179,7 @@ class ZendModuleProvider
         return $this->convert($this->module->getHydratorConfig());
     }
 
-    public function getInputFilterConfig()
+    public function getInputFilterConfig() /* : array */
     {
         if (! $this->module instanceof InputFilterProviderInterface) {
             return [];
@@ -193,5 +195,14 @@ class ZendModuleProvider
         }
 
         return $this->convert($this->module->getSerializerConfig());
+    }
+
+    public function getViewHelperConfig() : array
+    {
+        if (! $this->module instanceof ViewHelperProviderInterface) {
+            return [];
+        }
+
+        return $this->convert($this->module->getViewHelperConfig());
     }
 }
