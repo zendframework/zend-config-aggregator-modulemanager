@@ -21,6 +21,7 @@ use Zend\ModuleManager\Feature\InputFilterProviderInterface;
 use Zend\ModuleManager\Feature\RouteProviderInterface;
 use Zend\ModuleManager\Feature\SerializerProviderInterface;
 use Zend\ModuleManager\Feature\ValidatorProviderInterface;
+use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
 use ZendTest\ConfigAggregatorModuleManager\Resources\ServiceManagerConfigurationTrait;
 use ZendTest\ConfigAggregatorModuleManager\Resources\ZendModule;
 use ZendTest\ConfigAggregatorModuleManager\Resources\ZendModuleWithInvalidConfiguration;
@@ -148,6 +149,21 @@ class ZendModuleProviderTest extends TestCase
         $this->assertSame($this->createServiceManagerConfiguration(), $config['serializers']);
     }
 
+    public function testCanProviderViewHelpersFromViewHelperProviderInterface()
+    {
+        $module = $this->createMock(ViewHelperProviderInterface::class);
+        $module
+            ->expects($this->once())
+            ->method('getViewHelperConfig')
+            ->willReturn($this->createServiceManagerConfiguration());
+
+        $provider = new ZendModuleProvider($module);
+
+        $config = $provider();
+        $this->assertArrayHasKey('view_helpers', $config);
+        $this->assertSame($this->createServiceManagerConfiguration(), $config['view_helpers']);
+    }
+
     public function testCanProvideAnyConfigValue()
     {
         $module = new ZendModule();
@@ -191,7 +207,7 @@ class ZendModuleProviderTest extends TestCase
         $this->assertSame($this->createServiceManagerConfiguration(), $config['dependencies']);
     }
 
-    public function testCanHandleModuelsWithZendConfigConfiguration()
+    public function testCanHandleModulesWithZendConfigConfiguration()
     {
         $module = new ZendModuleWithTraversableConfig();
         $provider = new ZendModuleProvider($module);

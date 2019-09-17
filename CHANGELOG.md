@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#3](https://github.com/zendframework/zend-config-aggregator-modulemanager/pull/3) adds support for `ViewHelperProviderInterface`
 
 ### Changed
 
