@@ -197,7 +197,7 @@
 that allows you to use <code>Module</code> classes as configuration providers in
 applications backed by <code>Zend\ConfigAggregator\ConfigAggregator</code>.</p>
 <p>As an example, consider the following <code>Module</code> class:</p>
-<pre class="codehilite"><code class="language-php">namespace My\Zend\MvcModule;
+<p> <pre class=codehilite><code class=language-php>namespace My\Zend\MvcModule;
 
 class Module 
 {
@@ -211,12 +211,11 @@ class Module
             ],
         ];
     }
-}</code></pre>
-
+}</code></pre></p>
 <p>When defining configuration for your application, you can use the class
 <code>Zend\ConfigAggregatorModuleManager\ZendModuleProvider</code> to wrap the module and
 use it as a configuration provider:</p>
-<pre class="codehilite"><code class="language-php">use Zend\ConfigAggregator\ConfigAggregator;
+<p> <pre class=codehilite><code class=language-php>use Zend\ConfigAggregator\ConfigAggregator;
 use Zend\ConfigAggregatorModuleManager\ZendModuleProvider;
 use My\Zend\MvcModule\Module as MyZendMvcModule;
 
@@ -224,22 +223,21 @@ $aggregator = new ConfigAggregator([
     new ZendModuleProvider(new MyZendMvcModule()),
 ]);
 
-var_dump($aggregator-&gt;getMergedConfig());</code></pre>
-
+var_dump($aggregator-&gt;getMergedConfig());</code></pre></p>
 <p>Using this provider, the <code>Module</code> class is being parsed for
 <code>zendframework/zend-modulemanager</code> interfaces or methods in exactly the same way as
 performed in zend-mvc applications.</p>
 <p>The resultant output of the above example would be:</p>
-<pre class="codehilite"><code class="language-php">array(1) {
+<p> <pre class=codehilite><code class=language-php>array(1) {
   'dependencies' =&gt; 
   array(1) {
     'invokables' =&gt;
     array(1) {
        'My\Zend\MvcModule\Service\MyService' =&gt;
-       string(35) "My\Zend\MvcModule\Service\MyService"
+       string(35) &quot;My\Zend\MvcModule\Service\MyService&quot;
     }
   }
-}</code></pre>
+}</code></pre></p>
 
 
 
@@ -269,7 +267,7 @@ performed in zend-mvc applications.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-config-aggregator-modulemanager/edit/master/docs/usage.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-config-aggregator-modulemanager/edit/master/docs/book/usage.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
