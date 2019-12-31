@@ -1,5 +1,9 @@
 # zend-config-aggregator-modulemanager
 
+> ## Repository abandoned 2019-12-31
+>
+> This repository has moved to laminas/laminas-config-aggregator-modulemanager.
+
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-config-aggregator-modulemanager.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-config-aggregator-modulemanager)
 [![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-config-aggregator-modulemanager/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-config-aggregator-modulemanager?branch=master)
 
